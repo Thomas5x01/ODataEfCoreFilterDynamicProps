@@ -1,0 +1,23 @@
+@ODataDynamicProperties_HostAddress = http://localhost:5184
+
+
+# works
+GET {{ODataDynamicProperties_HostAddress}}/personDtos
+Accept: application/json
+###
+
+# works
+GET {{ODataDynamicProperties_HostAddress}}/personDtos?$filter=id%20eq%201
+Accept: application/json
+###
+
+# fails
+# System.ArgumentException: Method 'System.Object get_Item(System.String)' declared on type 'System.Collections.Generic.Dictionary`2[System.String,System.Object]' cannot be called with instance of type 'System.Object'
+#    at System.Linq.Expressions.Expression.ValidateCallInstanceType(Type instanceType, MethodInfo method)
+#    at System.Linq.Expressions.Expression.ValidateAccessor(Expression instance, MethodInfo method, ParameterInfo[] indexes, ReadOnlyCollection`1& arguments, String paramName)
+#    at System.Linq.Expressions.Expression.ValidateIndexedProperty(Expression instance, PropertyInfo indexer, String paramName, ReadOnlyCollection`1& argList)
+#    at System.Linq.Expressions.Expression.MakeIndex(Expression instance, PropertyInfo indexer, IEnumerable`1 arguments)   
+
+GET {{ODataDynamicProperties_HostAddress}}/personDtos?$filter=LikesFootball%20eq%201
+Accept: application/json
+###
