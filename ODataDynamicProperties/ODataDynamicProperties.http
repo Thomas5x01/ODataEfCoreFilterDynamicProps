@@ -18,6 +18,7 @@ Accept: application/json
 #    at System.Linq.Expressions.Expression.ValidateIndexedProperty(Expression instance, PropertyInfo indexer, String paramName, ReadOnlyCollection`1& argList)
 #    at System.Linq.Expressions.Expression.MakeIndex(Expression instance, PropertyInfo indexer, IEnumerable`1 arguments)   
 
-GET {{ODataDynamicProperties_HostAddress}}/personDtos?$filter=LikesFootball%20eq%201
+GET {{ODataDynamicProperties_HostAddress}}/personDtos?$filter=LikesFootball%20eq%20false
 Accept: application/json
 ###
+ 
